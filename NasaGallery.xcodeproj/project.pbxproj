@@ -16,6 +16,9 @@
 		A918841C29A6930C0098AABC /* GridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A918841B29A6930C0098AABC /* GridView.swift */; };
 		A918841E29A6932D0098AABC /* GridViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A918841D29A6932D0098AABC /* GridViewModel.swift */; };
 		A918842129A693990098AABC /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = A918842029A693990098AABC /* SDWebImageSwiftUI */; };
+		A97E661329A7190300F3E451 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97E661229A7190300F3E451 /* DetailView.swift */; };
+		A97E661529A7191200F3E451 /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97E661429A7191200F3E451 /* DetailViewModel.swift */; };
+		A97E661F29A71BE800F3E451 /* ChevronButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97E661E29A71BE800F3E451 /* ChevronButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +31,9 @@
 		A918841829A6924A0098AABC /* NasaImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NasaImage.swift; sourceTree = "<group>"; };
 		A918841B29A6930C0098AABC /* GridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridView.swift; sourceTree = "<group>"; };
 		A918841D29A6932D0098AABC /* GridViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridViewModel.swift; sourceTree = "<group>"; };
+		A97E661229A7190300F3E451 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
+		A97E661429A7191200F3E451 /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
+		A97E661E29A71BE800F3E451 /* ChevronButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChevronButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,7 +67,8 @@
 		A918840529A691B40098AABC /* NasaGallery */ = {
 			isa = PBXGroup;
 			children = (
-				A918842229A694650098AABC /* Utilities */,
+				A97E661D29A71BCD00F3E451 /* Utilities */,
+				A97E661129A718E900F3E451 /* DetailViewModule */,
 				A918841A29A692C40098AABC /* GridOfImages */,
 				A918841729A6922B0098AABC /* Model */,
 				A918841429A691E90098AABC /* NetworkManager */,
@@ -100,15 +107,57 @@
 		A918841A29A692C40098AABC /* GridOfImages */ = {
 			isa = PBXGroup;
 			children = (
-				A918841B29A6930C0098AABC /* GridView.swift */,
-				A918841D29A6932D0098AABC /* GridViewModel.swift */,
+				A97E661B29A71A2000F3E451 /* GridViewViewModel */,
+				A97E661A29A71A1200F3E451 /* GridView */,
 			);
 			path = GridOfImages;
 			sourceTree = "<group>";
 		};
-		A918842229A694650098AABC /* Utilities */ = {
+		A97E661129A718E900F3E451 /* DetailViewModule */ = {
 			isa = PBXGroup;
 			children = (
+				A97E661929A719FC00F3E451 /* DetailViewViewModel */,
+				A97E661829A719ED00F3E451 /* DetailView */,
+			);
+			path = DetailViewModule;
+			sourceTree = "<group>";
+		};
+		A97E661829A719ED00F3E451 /* DetailView */ = {
+			isa = PBXGroup;
+			children = (
+				A97E661229A7190300F3E451 /* DetailView.swift */,
+			);
+			path = DetailView;
+			sourceTree = "<group>";
+		};
+		A97E661929A719FC00F3E451 /* DetailViewViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				A97E661429A7191200F3E451 /* DetailViewModel.swift */,
+			);
+			path = DetailViewViewModel;
+			sourceTree = "<group>";
+		};
+		A97E661A29A71A1200F3E451 /* GridView */ = {
+			isa = PBXGroup;
+			children = (
+				A918841B29A6930C0098AABC /* GridView.swift */,
+			);
+			path = GridView;
+			sourceTree = "<group>";
+		};
+		A97E661B29A71A2000F3E451 /* GridViewViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				A918841D29A6932D0098AABC /* GridViewModel.swift */,
+			);
+			path = GridViewViewModel;
+			sourceTree = "<group>";
+		};
+		A97E661D29A71BCD00F3E451 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				A97E661E29A71BE800F3E451 /* ChevronButton.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -191,10 +240,13 @@
 			files = (
 				A918841E29A6932D0098AABC /* GridViewModel.swift in Sources */,
 				A918841929A6924A0098AABC /* NasaImage.swift in Sources */,
+				A97E661F29A71BE800F3E451 /* ChevronButton.swift in Sources */,
 				A918841629A692150098AABC /* DataService.swift in Sources */,
+				A97E661329A7190300F3E451 /* DetailView.swift in Sources */,
 				A918840929A691B40098AABC /* ContentView.swift in Sources */,
 				A918841C29A6930C0098AABC /* GridView.swift in Sources */,
 				A918840729A691B40098AABC /* NasaGalleryApp.swift in Sources */,
+				A97E661529A7191200F3E451 /* DetailViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

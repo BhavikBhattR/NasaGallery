@@ -9,6 +9,7 @@ import SwiftUI
 
 @main
 struct NasaGalleryApp: App {
+
     var body: some Scene {
         WindowGroup {
            GridView(vm: GridViewModel(dataService: ProductionDataService()))

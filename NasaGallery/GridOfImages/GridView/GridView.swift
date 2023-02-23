@@ -32,12 +32,12 @@ struct GridView: View {
                     LazyVGrid(columns: columns){
                         ForEach(0..<vm.nasaImages.count, id: \.self) { index in
                             NavigationLink{
-                               Text("Detail View")
+                                DetailView(nasaImage: vm.nasaImages[index], nasaImages: vm.nasaImages)
                             } label: {
                                 ZStack{
-//                                    Rectangle()
-//                                        .fill(Colors.returnedColor(index: index))
-//                                        .cornerRadius(10)
+                                    Rectangle()
+                                        .fill(Colors.returnedColor(index: index))
+                                        .cornerRadius(10)
                                         
                                 VStack{
                                     GeometryReader{ geo in
