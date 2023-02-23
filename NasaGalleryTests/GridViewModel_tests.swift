@@ -9,6 +9,15 @@ import XCTest
 @testable import NasaGallery
 import Combine
 
+/* naming structure of the function : test_[struct or class]_[var or function]_[value of var or result of a function]
+ In naming structure:
+  1. test denotes test
+  2. struct or class is of that function/variable we want to test
+  3. var or function we want to check on
+  4. at last, what should be the value of variable after some action (ex. After running a function)
+ */
+/*Testing structure : Giving, When, Then */
+
 final class GridViewModel_tests: XCTestCase {
     
     var anyCancellables = Set<AnyCancellable>()

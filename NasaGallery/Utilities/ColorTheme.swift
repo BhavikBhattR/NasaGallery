@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 
 struct Colors{
-    static let allColors: [Color] = [.red, .blue, .green, .yellow, .pink, .purple, .cyan]
+    static var allColors: [Color] = [.pink, .blue, .green, .yellow, .purple, .cyan]
     static func returnedColor(index: Int) -> Color{
         if index > allColors.count - 1{
             return allColors[index % allColors.count]

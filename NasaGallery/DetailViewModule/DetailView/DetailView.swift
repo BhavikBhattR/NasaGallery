@@ -11,22 +11,24 @@ import SDWebImageSwiftUI
 
 struct DetailView: View {
     @StateObject var vm: DetailViewModel
+    @Environment(\.dismiss) var dismiss
     init(nasaImages: [NasaImage]){
         self._vm = StateObject(wrappedValue: DetailViewModel(nasaImages: nasaImages))
     }
     var body: some View {
         ZStack{
             Color.black.ignoresSafeArea()
+    
         TabView{
             ForEach(vm.nasaImages, id: \.url) { nasaImage in
                 ZStack{
                     Colors.returnedColor(index: vm.nasaImages.firstIndex(where: {$0.url == nasaImage.url}) ?? 2).ignoresSafeArea()
                     GeometryReader{ geometry in
                         ScrollView(showsIndicators: false){
-                            VStack(spacing: 0){
+                            VStack(spacing: 20){
                                 TitleOf(nasaImage: nasaImage)
-                                returnImageOf(geometry: geometry, nasaImage: nasaImage)
-                                CapturedDateOf(nasaImage: nasaImage)
+                                    returnImageOf(nasaImage: nasaImage)
+                                    CapturedData(nasaImage: nasaImage)
                                 VStack(alignment: .leading){
                                  customDivider
                                  DetailSectionOf(nasaImage: nasaImage)
@@ -44,8 +46,24 @@ struct DetailView: View {
                     .indexViewStyle(.page(backgroundDisplayMode: .interactive))
         .navigationTitle("hello")
         .toolbar(.hidden, for: .navigationBar)
+        .overlay {
+            
+            Button{
+                withAnimation(Animation.linear(duration: 2)) {
+                    dismiss()
+                }
+            }label: {
+                Image(systemName: "chevron.left")
+                    .bold()
+                    .foregroundColor(.black)
+                    .padding()
+            }.frame(maxWidth: .infinity, alignment: .leading)
+                .frame(maxHeight:.infinity, alignment: .top)
+        }
         
-    }
+        }.onDisappear{
+            Colors.allColors.shuffle()
+        }
     }
 }
 
@@ -57,35 +75,40 @@ extension DetailView{
         var body: some View{
             Text(nasaImage.title)
                 .font(.headline.bold())
-                .padding([.horizontal, .vertical])
-                .background(Rectangle().stroke())
+                .padding([.horizontal, .vertical, .top])
+                .background(Rectangle().stroke(.black, lineWidth: 0.8))
                 .cornerRadius(10)
-                .foregroundColor(.white)
+                .foregroundColor(.black)
         }
     }
     
-    private func returnImageOf(geometry: GeometryProxy, nasaImage: NasaImage) -> some View{
-        return WebImage(url: URL(string: nasaImage.url))
+    private func returnImageOf(nasaImage: NasaImage) -> some View{
+        return  WebImage(url: URL(string: nasaImage.url))
             .resizable()
-            .scaledToFit()
+            .scaledToFill()
+            .frame(width: 250, height: 250)
+            .clipped()
+            .aspectRatio(1, contentMode: .fit)
             .border(.black)
-            .frame(width: 250, height: 150)
-            .fixedSize(horizontal: true, vertical: false)
-            .padding(.top)
+            .shadow(radius: 2)
+            .cornerRadius(10)
     }
     
-    struct CapturedDateOf: View{
+    struct CapturedData: View{
         let nasaImage: NasaImage
         
         var body: some View{
-            Text("Captured on: \(nasaImage.date)")
-                .font(.caption)
-                .padding()
-                .background(Rectangle().stroke(lineWidth: 0.4))
-                .padding(.vertical)
-               
+            VStack(alignment: .leading ,spacing: 7){
+                Text("Captured On: \(nasaImage.date)")
+                Text("Captured By: \(nasaImage.copyright ?? "N/A")")
+            }.font(.caption)
+             .fontWeight(.bold)
+             .foregroundColor(.black)
+             .padding()
+             .background(Rectangle().stroke(.black, lineWidth: 0.4))
         }
     }
+    
     
     private var customDivider: some View{
         Rectangle()
@@ -112,7 +135,4 @@ extension DetailView{
                 .fontWeight(.semibold)
         }
     }
-    
-  
-    
 }
