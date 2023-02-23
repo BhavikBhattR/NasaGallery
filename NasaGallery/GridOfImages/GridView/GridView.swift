@@ -18,6 +18,8 @@ struct GridView: View {
     var body: some View {
         VStack{
             NavigationStack{
+                ZStack{
+                    Color.colorTheme.backgroundColorHome.edgesIgnoringSafeArea(.bottom)
                 ScrollView{
                     LazyVGrid(columns: columns){
                         ForEach(0..<vm.nasaImages.count, id: \.self) { index in
@@ -28,34 +30,37 @@ struct GridView: View {
                                     Rectangle()
                                         .fill(Colors.returnedColor(index: index))
                                         .cornerRadius(10)
-                                        
-                                VStack{
-                                    GeometryReader{ geo in
+                                    
+                                    VStack{
+                                        GeometryReader{ geo in
                                             WebImage(url: URL(string: vm.nasaImages[index].url))
                                                 .resizable()
                                                 .scaledToFill()
-                                    }.clipped()
-                                        .aspectRatio(1, contentMode: .fit)
+                                        }.clipped()
+                                            .aspectRatio(1, contentMode: .fit)
+                                    }
+                                    .cornerRadius(10)
+                                    .overlay(
+                                        RoundedRectangle(cornerRadius: 10)
+                                            .stroke(Color.colorTheme.borderColor)
+                                    )
                                 }
-                                .clipShape(RoundedRectangle(cornerRadius: 10))
-                                    
-                                .overlay(
-                                    RoundedRectangle(cornerRadius: 10)
-                                        .stroke(.black)
-                                )
-                            }
                                 
+                            }
                         }
                     }
-                    }
-                    .padding(.horizontal, 5)
-                    .padding([.bottom])
+                    .padding(.horizontal, 10)
+                    .padding([.bottom, .top])
                 }
-                .navigationTitle("Nasa Gallery")
             }
-        }.task {
+                .navigationTitle("Nasa Gallery")
+                .navigationBarTitleDisplayMode(.inline)
+            }
+        }
+        .task {
              vm.downloadNasaImages()
         }
+        .toolbar(.hidden, for: .tabBar)
     }
 }
 

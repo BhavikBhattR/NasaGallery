@@ -17,8 +17,7 @@ struct DetailView: View {
     }
     var body: some View {
         ZStack{
-            Color.black.ignoresSafeArea()
-    
+            Color.black.background().edgesIgnoringSafeArea([.bottom, .top])
         TabView{
             ForEach(vm.nasaImages, id: \.url) { nasaImage in
                 ZStack{
@@ -35,19 +34,19 @@ struct DetailView: View {
                                 }
                             }
                         }
+                        .padding([.bottom])
                         .padding(.horizontal, 7)
-                        .padding(.top)
-                    }
+                    }.padding(.top)
                 }
             }
             
         }
+        .cornerRadius(10)
         .tabViewStyle(.page)
                     .indexViewStyle(.page(backgroundDisplayMode: .interactive))
         .navigationTitle("hello")
-        .toolbar(.hidden, for: .navigationBar)
+        .toolbar(.hidden, for: .bottomBar, .navigationBar)
         .overlay {
-            
             Button{
                 withAnimation(Animation.linear(duration: 2)) {
                     dismiss()
@@ -57,6 +56,9 @@ struct DetailView: View {
                     .bold()
                     .foregroundColor(.black)
                     .padding()
+                    .background(Circle().fill(.white.opacity(0.6)))
+                    .padding(.leading, 5)
+                    .padding([.trailing, .top])
             }.frame(maxWidth: .infinity, alignment: .leading)
                 .frame(maxHeight:.infinity, alignment: .top)
         }
@@ -76,9 +78,10 @@ extension DetailView{
             Text(nasaImage.title)
                 .font(.headline.bold())
                 .padding([.horizontal, .vertical, .top])
-                .background(Rectangle().stroke(.black, lineWidth: 0.8))
-                .cornerRadius(10)
+                .background(Rectangle().fill(.white.opacity(0.6)))
                 .foregroundColor(.black)
+                .border(.black)
+                .cornerRadius(10)
         }
     }
     
@@ -105,7 +108,9 @@ extension DetailView{
              .fontWeight(.bold)
              .foregroundColor(.black)
              .padding()
-             .background(Rectangle().stroke(.black, lineWidth: 0.4))
+             .background(Rectangle().fill(.white.opacity(0.6)))
+             .border(.black)
+             .cornerRadius(10)
         }
     }
     
@@ -124,12 +129,14 @@ extension DetailView{
             Text("Details:")
                 .font(.headline.bold())
                 .padding([.horizontal, .vertical])
-                .background(.white.opacity(0.6))
+                .background(Rectangle().fill(.white.opacity(0.6)))
+                .border(.black)
                 .cornerRadius(10)
                 .foregroundColor(.black)
             Text(nasaImage.explanation)
                 .padding()
-                .background(.white.opacity(0.6))
+                .background(Rectangle().fill(.white.opacity(0.6)))
+                .border(.black)
                 .cornerRadius(10)
                 .foregroundColor(.black)
                 .fontWeight(.semibold)

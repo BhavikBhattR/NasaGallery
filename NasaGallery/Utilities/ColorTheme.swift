@@ -18,3 +18,12 @@ struct Colors{
         }
     }
 }
+
+extension Color{
+    static let colorTheme = ColorTheme()
+}
+
+struct ColorTheme{
+    let backgroundColorHome = Color("BackgroundColorHome")
+    let borderColor = Color("borderColor")
+}
