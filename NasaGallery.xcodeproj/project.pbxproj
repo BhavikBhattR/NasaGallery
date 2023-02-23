@@ -22,6 +22,7 @@
 		A97E663429A7496F00F3E451 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = A97E663329A7496F00F3E451 /* SDWebImageSwiftUI */; };
 		A97E663629A749A800F3E451 /* GridViewModel_tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97E663529A749A800F3E451 /* GridViewModel_tests.swift */; };
 		A97E663C29A7691400F3E451 /* ColorTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97E663B29A7691400F3E451 /* ColorTheme.swift */; };
+		A982C24029A7A00800D42C69 /* DataService_tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A982C23F29A7A00800D42C69 /* DataService_tests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +51,7 @@
 		A97E662B29A7495C00F3E451 /* NasaGalleryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NasaGalleryTests.swift; sourceTree = "<group>"; };
 		A97E663529A749A800F3E451 /* GridViewModel_tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridViewModel_tests.swift; sourceTree = "<group>"; };
 		A97E663B29A7691400F3E451 /* ColorTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorTheme.swift; sourceTree = "<group>"; };
+		A982C23F29A7A00800D42C69 /* DataService_tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService_tests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -194,6 +196,7 @@
 			children = (
 				A97E662B29A7495C00F3E451 /* NasaGalleryTests.swift */,
 				A97E663529A749A800F3E451 /* GridViewModel_tests.swift */,
+				A982C23F29A7A00800D42C69 /* DataService_tests.swift */,
 			);
 			path = NasaGalleryTests;
 			sourceTree = "<group>";
@@ -332,6 +335,7 @@
 			files = (
 				A97E663629A749A800F3E451 /* GridViewModel_tests.swift in Sources */,
 				A97E662C29A7495C00F3E451 /* NasaGalleryTests.swift in Sources */,
+				A982C24029A7A00800D42C69 /* DataService_tests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

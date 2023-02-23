@@ -16,7 +16,7 @@ class ProductionDataService: DataServiceProtocol{
     let url: URL
     var anyCancellables = Set<AnyCancellable>()
     
-    init(url: URL = URL(string: "https://raw.githubusercontent.com/obvious/take-home-exercise-data/trunk/nasa-pictures.json")!) {
+    init(url: URL) {
             self.url = url
         }
     

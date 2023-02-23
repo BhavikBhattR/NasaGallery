@@ -61,6 +61,6 @@ struct GridView: View {
 
 struct GridView_Previews: PreviewProvider {
     static var previews: some View {
-        GridView(vm: GridViewModel(dataService: ProductionDataService()))
+        GridView(vm: GridViewModel(dataService: ProductionDataService(url: URL(string: "https://raw.githubusercontent.com/obvious/take-home-exercise-data/trunk/nasa-pictures.json")!)))
     }
 }
