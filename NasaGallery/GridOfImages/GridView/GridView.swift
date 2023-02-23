@@ -9,16 +9,6 @@ import SwiftUI
 import SDWebImage
 import SDWebImageSwiftUI
 
-struct Colors{
-    static let allColors: [Color] = [.red, .blue, .green, .yellow, .pink, .purple, .cyan]
-    static func returnedColor(index: Int) -> Color{
-        if index > allColors.count - 1{
-            return allColors[index % allColors.count]
-        }else{
-            return allColors[index]
-        }
-    }
-}
 
 struct GridView: View {
     let columns = [
@@ -32,7 +22,7 @@ struct GridView: View {
                     LazyVGrid(columns: columns){
                         ForEach(0..<vm.nasaImages.count, id: \.self) { index in
                             NavigationLink{
-                                DetailView(nasaImage: vm.nasaImages[index], nasaImages: vm.nasaImages)
+                                DetailView(nasaImages: vm.nasaImages)
                             } label: {
                                 ZStack{
                                     Rectangle()
@@ -44,25 +34,8 @@ struct GridView: View {
                                             WebImage(url: URL(string: vm.nasaImages[index].url))
                                                 .resizable()
                                                 .scaledToFill()
-                                            //                                            .fixedSize(horizontal: (true), vertical: (true))
-                                            //                                            .scaledToFit()
-                                            //                                            .border(.white)
-                                            //                                            .frame(width: 150, height: 100)
-                                            //                                            .padding()
-                                        
                                     }.clipped()
                                         .aspectRatio(1, contentMode: .fit)
-//                                    Spacer()
-//                                    VStack{
-//                                        Text(vm.nasaImages[index].title)
-//                                            .font(.headline)
-//                                            .foregroundColor(.black)
-//                                        Text(vm.nasaImages[index].date)
-//                                            .foregroundColor(.black.opacity(0.5))
-//                                    }
-//                                    .padding(.vertical)
-//                                    .frame(maxWidth: .infinity)
-//                                    .background(.white.opacity(0.5))
                                 }
                                 .clipShape(RoundedRectangle(cornerRadius: 10))
                                     
@@ -79,8 +52,6 @@ struct GridView: View {
                     .padding([.bottom])
                 }
                 .navigationTitle("Nasa Gallery")
-//                .background(.white.opacity(0.8))
-//                    .preferredColorScheme(.dark)
             }
         }.task {
              vm.downloadNasaImages()

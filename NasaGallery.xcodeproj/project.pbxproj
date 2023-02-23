@@ -18,10 +18,10 @@
 		A918842129A693990098AABC /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = A918842029A693990098AABC /* SDWebImageSwiftUI */; };
 		A97E661329A7190300F3E451 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97E661229A7190300F3E451 /* DetailView.swift */; };
 		A97E661529A7191200F3E451 /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97E661429A7191200F3E451 /* DetailViewModel.swift */; };
-		A97E661F29A71BE800F3E451 /* ChevronButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97E661E29A71BE800F3E451 /* ChevronButton.swift */; };
 		A97E662C29A7495C00F3E451 /* NasaGalleryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97E662B29A7495C00F3E451 /* NasaGalleryTests.swift */; };
 		A97E663429A7496F00F3E451 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = A97E663329A7496F00F3E451 /* SDWebImageSwiftUI */; };
 		A97E663629A749A800F3E451 /* GridViewModel_tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97E663529A749A800F3E451 /* GridViewModel_tests.swift */; };
+		A97E663C29A7691400F3E451 /* ColorTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97E663B29A7691400F3E451 /* ColorTheme.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,10 +46,10 @@
 		A918841D29A6932D0098AABC /* GridViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridViewModel.swift; sourceTree = "<group>"; };
 		A97E661229A7190300F3E451 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		A97E661429A7191200F3E451 /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
-		A97E661E29A71BE800F3E451 /* ChevronButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChevronButton.swift; sourceTree = "<group>"; };
 		A97E662929A7495C00F3E451 /* NasaGalleryTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NasaGalleryTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A97E662B29A7495C00F3E451 /* NasaGalleryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NasaGalleryTests.swift; sourceTree = "<group>"; };
 		A97E663529A749A800F3E451 /* GridViewModel_tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridViewModel_tests.swift; sourceTree = "<group>"; };
+		A97E663B29A7691400F3E451 /* ColorTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorTheme.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -184,7 +184,7 @@
 		A97E661D29A71BCD00F3E451 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				A97E661E29A71BE800F3E451 /* ChevronButton.swift */,
+				A97E663B29A7691400F3E451 /* ColorTheme.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -315,8 +315,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				A918841E29A6932D0098AABC /* GridViewModel.swift in Sources */,
+				A97E663C29A7691400F3E451 /* ColorTheme.swift in Sources */,
 				A918841929A6924A0098AABC /* NasaImage.swift in Sources */,
-				A97E661F29A71BE800F3E451 /* ChevronButton.swift in Sources */,
 				A918841629A692150098AABC /* DataService.swift in Sources */,
 				A97E661329A7190300F3E451 /* DetailView.swift in Sources */,
 				A918840929A691B40098AABC /* ContentView.swift in Sources */,

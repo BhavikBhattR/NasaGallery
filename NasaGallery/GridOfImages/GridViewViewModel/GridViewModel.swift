@@ -11,7 +11,7 @@ import Combine
 class GridViewModel: ObservableObject{
     
     let dataService: DataServiceProtocol
-    @Published var nasaImages: [NasaImage] = [].sorted(by: {$0.date > $1.date})
+    @Published var nasaImages: [NasaImage] = []
     var anyCancellables = Set<AnyCancellable>()
     
     init(dataService: DataServiceProtocol){
@@ -29,7 +29,7 @@ class GridViewModel: ObservableObject{
                     print("returned data successfully")
                 }
             } receiveValue: { [weak self] returnedImages in
-                self?.nasaImages = returnedImages
+                self?.nasaImages = returnedImages.sorted(by: {$0.date > $1.date})
             }
             .store(in: &anyCancellables)
 
