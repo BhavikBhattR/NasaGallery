@@ -12,16 +12,17 @@ import SDWebImageSwiftUI
 struct DetailView: View {
     @StateObject var vm: DetailViewModel
     @Environment(\.dismiss) var dismiss
-    init(nasaImages: [NasaImage]){
-        self._vm = StateObject(wrappedValue: DetailViewModel(nasaImages: nasaImages))
+    init(nasaImages: [NasaImage], selectedImageIndex: Int){
+        self._vm = StateObject(wrappedValue: DetailViewModel(nasaImages: nasaImages, selectedImageIndex: selectedImageIndex))
     }
     var body: some View {
         ZStack{
             Color.black.background().edgesIgnoringSafeArea([.bottom, .top])
-        TabView{
+            TabView(selection: $vm.selectedImageIndex){
             ForEach(vm.nasaImages, id: \.url) { nasaImage in
                 ZStack{
-                    Colors.returnedColor(index: vm.nasaImages.firstIndex(where: {$0.url == nasaImage.url}) ?? 2).ignoresSafeArea()
+                    Colors.returnedColor(index: vm.nasaImages.firstIndex(where: {$0.url == nasaImage.url}) ?? 0).ignoresSafeArea()
+                
                     GeometryReader{ geometry in
                         ScrollView(showsIndicators: false){
                             VStack(spacing: 20){
@@ -37,30 +38,17 @@ struct DetailView: View {
                         .padding([.bottom])
                         .padding(.horizontal, 7)
                     }.padding(.top)
-                }
+                } .tag(vm.nasaImages.firstIndex(where: {$0.url == nasaImage.url}) ?? 0)
             }
             
         }
         .cornerRadius(10)
         .tabViewStyle(.page)
-                    .indexViewStyle(.page(backgroundDisplayMode: .interactive))
+        .indexViewStyle(.page(backgroundDisplayMode: .interactive))
         .navigationTitle("hello")
         .toolbar(.hidden, for: .bottomBar, .navigationBar)
         .overlay {
-            Button{
-                withAnimation(Animation.linear(duration: 2)) {
-                    dismiss()
-                }
-            }label: {
-                Image(systemName: "chevron.left")
-                    .bold()
-                    .foregroundColor(.black)
-                    .padding()
-                    .background(Circle().fill(.white.opacity(0.6)))
-                    .padding(.leading, 5)
-                    .padding([.trailing, .top])
-            }.frame(maxWidth: .infinity, alignment: .leading)
-                .frame(maxHeight:.infinity, alignment: .top)
+          customBackButton
         }
         
         }.onDisappear{
@@ -70,6 +58,23 @@ struct DetailView: View {
 }
 
 extension DetailView{
+    
+    private var customBackButton: some View{
+        Button{
+            withAnimation(Animation.linear(duration: 2)) {
+                dismiss()
+            }
+        }label: {
+            Image(systemName: "chevron.left")
+                .bold()
+                .foregroundColor(.black)
+                .padding()
+                .background(Circle().fill(.white.opacity(0.3)))
+                .padding(.leading, 5)
+                .padding([.trailing, .top])
+        }.frame(maxWidth: .infinity, alignment: .leading)
+            .frame(maxHeight:.infinity, alignment: .top)
+    }
     
     struct TitleOf: View{
         let nasaImage: NasaImage

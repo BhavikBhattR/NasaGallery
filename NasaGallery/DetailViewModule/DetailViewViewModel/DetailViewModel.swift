@@ -11,8 +11,10 @@ import SwiftUI
 class DetailViewModel: ObservableObject{
     
     let nasaImages: [NasaImage]
+    @Published var selectedImageIndex: Int
     
-    init(nasaImages: [NasaImage]){
+    init(nasaImages: [NasaImage], selectedImageIndex: Int){
         self.nasaImages = nasaImages
+        self.selectedImageIndex = selectedImageIndex
     }
 }

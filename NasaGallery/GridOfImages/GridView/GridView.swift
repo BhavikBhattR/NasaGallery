@@ -24,7 +24,7 @@ struct GridView: View {
                     LazyVGrid(columns: columns){
                         ForEach(0..<vm.nasaImages.count, id: \.self) { index in
                             NavigationLink{
-                                DetailView(nasaImages: vm.nasaImages)
+                                DetailView(nasaImages: vm.nasaImages, selectedImageIndex: index)
                             } label: {
                                 ZStack{
                                     Rectangle()
