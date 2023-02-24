@@ -10,45 +10,46 @@ import Combine
 
 protocol DataServiceProtocol{
     func downloadData() -> AnyPublisher<[NasaImage], Error>
+    func handleResponse(data: Data?, response: URLResponse?) throws -> [NasaImage]
+}
+
+enum Errors: Error{
+    case dataCouldNotBeDecoded, returnedDataIsNil, responseIsNotHTTPURL
 }
 
 class ProductionDataService: DataServiceProtocol{
     let url: URL
-    var anyCancellables = Set<AnyCancellable>()
     
     init(url: URL) {
             self.url = url
         }
     
-    func handleResponse(data: Data?, response: URLResponse?) throws -> Data{
-        guard
-            let data = data,
-            let response = response as? HTTPURLResponse,
-            response.statusCode >= 200 && response.statusCode < 300 else{
+    func handleResponse(data: Data?, response: URLResponse?) throws -> [NasaImage]{
+        guard let data = data else {
+            throw Errors.returnedDataIsNil
+        }
+            
+        guard let response = response as? HTTPURLResponse else{
+            throw Errors.responseIsNotHTTPURL
+        }
+        guard response.statusCode >= 200 && response.statusCode < 300 else{
             throw URLError(.badServerResponse)
         }
-        return data
+        
+        do{
+            let imagesData = try JSONDecoder().decode([NasaImage].self, from: data)
+            return imagesData
+        }catch{
+            print("data could not be decoded")
+            throw Errors.dataCouldNotBeDecoded
+        }
     }
     
         func downloadData() -> AnyPublisher<[NasaImage], Error>{
             
             URLSession.shared.dataTaskPublisher(for: url)
                 .tryMap(handleResponse)
-                .decode(type: [NasaImage].self, decoder: JSONDecoder())
+//                .decode(type: [NasaImage].self, decoder: JSONDecoder())
                 .eraseToAnyPublisher()
-                
-//
-//            do{
-//                let (data, _) = try await URLSession.shared.data(from: url)
-//                print(data)
-//                print(data[0])
-//                let nasaComponents = try JSONDecoder().decode([NasaImage].self, from: data)
-//                print(data)
-//                await MainActor.run(body: {
-//                    self.nasaComponents = nasaComponents
-//                })
-//            }catch{
-//                print("couldn't decode")
-//            }
         }
 }

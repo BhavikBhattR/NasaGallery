@@ -16,7 +16,6 @@ struct GridView: View {
     ]
     @StateObject var vm: GridViewModel
     var body: some View {
-        VStack{
             NavigationStack{
                 ZStack{
                     Color.colorTheme.backgroundColorHome.edgesIgnoringSafeArea(.bottom)
@@ -56,9 +55,8 @@ struct GridView: View {
                 .navigationTitle("Nasa Gallery")
                 .navigationBarTitleDisplayMode(.inline)
             }
-        }
         .task {
-             vm.downloadNasaImages()
+            vm.downloadNasaImages()
         }
         .toolbar(.hidden, for: .tabBar)
     }
