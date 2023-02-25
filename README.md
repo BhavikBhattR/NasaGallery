@@ -14,13 +14,28 @@ NasaGallery is the gallery of certain nasa images, User can tap on the image and
 
 ## Unit Tests details written for this project
 
-###### This is a simple project of containing 2 screens only. Prime focus while writing unit tests was on getting the data correctly from the internet, decoding it correctly (Decoding of the data is getting us the [NasaImage] format or not) and diaplaying in an asked manner (for ex. Latest image first). 
-###### GridViewModel and DataService contained the main business logic for the application. To test if both the files are working as expected different files of unit tests is created for both.
+###### - This is a simple project of containing 2 screens only. Prime focus while writing unit tests was on getting the data correctly from the internet, decoding it correctly (Decoding of the data is getting us the [NasaImage] format or not) and diaplaying in an asked manner (for ex. Latest image first). 
+###### - GridViewModel and DataService contained the main business logic for the application. To test if both the files are working as expected different files of unit tests is created for both.
+###### - Tests get failed with proper message so that developer can understand what really example. For that when something gets wrong custom errors are thrown while developing the code. Ex. Decoding the data with wrong decoder, Status code of response was not in 200-300 range, Returned data is nil or returned response was not HTTPURL all contains the explicit errors. 
+###### - It was desired that latest images must be first, so unit test is written for that too. 
 
-## UI of the project
+## UI of the project 
 
-###### Colorful placeholder boxes when images are getting downloaded
+###### Ignore the quality of GIF, it has been reduced to upload here. As we can not upload file of more than 10 MB
 
-![Simulator Screen Shot - iPhone 14 - 2023-02-25 at 18 13 20](https://user-images.githubusercontent.com/68719677/221357461-f6368da9-42bb-4cf7-8803-22691bd29ea0.png){:height="100px" width="100px"}
+###### Colorful placeholder boxes in Grid when images are getting downloaded
 
+![Simulator Screen Shot - iPhone 14 - 2023-02-25 at 18 13 20](https://user-images.githubusercontent.com/68719677/221357461-f6368da9-42bb-4cf7-8803-22691bd29ea0.png)
+
+###### Grid View after images gets downloaded
+
+![Simulator Screen Shot - iPhone 14 - 2023-02-25 at 18 19 24](https://user-images.githubusercontent.com/68719677/221357716-4418eb64-d373-4098-a044-2f231d0c7c9c.png)
+
+###### Detail View
+
+![DetailView](https://user-images.githubusercontent.com/68719677/221359655-fa237671-62a9-4705-a3bf-6037ed709b9c.gif)
+
+
+###### Swipinf feature to see previous or next image
  
+![SwipingToPreviousAndNext](https://user-images.githubusercontent.com/68719677/221360179-4bb56765-758a-4f88-b3da-2afdf70281a9.gif)
