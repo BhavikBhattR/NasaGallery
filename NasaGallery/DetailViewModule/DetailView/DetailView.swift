@@ -27,7 +27,11 @@ struct DetailView: View {
                         ScrollView(showsIndicators: false){
                             VStack(spacing: 20){
                                 TitleOf(nasaImage: nasaImage)
-                                    returnImageOf(nasaImage: nasaImage)
+                                if let image = SDImageCache.shared.imageFromCache(forKey: nasaImage.url){
+                                    cachedImageOf(image: image)
+                                }else{
+                                    downloadedImageOf(nasaImage: nasaImage)
+                                }
                                     CapturedData(nasaImage: nasaImage)
                                 VStack(alignment: .leading){
                                  customDivider
@@ -90,8 +94,20 @@ extension DetailView{
         }
     }
     
-    private func returnImageOf(nasaImage: NasaImage) -> some View{
-        return  WebImage(url: URL(string: nasaImage.url))
+    private func downloadedImageOf(nasaImage: NasaImage) -> some View{
+            return WebImage(url: URL(string: nasaImage.url))
+                .resizable()
+                .scaledToFill()
+                .frame(width: 250, height: 250)
+                .clipped()
+                .aspectRatio(1, contentMode: .fit)
+                .border(.black)
+                .shadow(radius: 2)
+                .cornerRadius(10)
+    }
+    
+    private func cachedImageOf(image: UIImage) -> some View{
+        return Image(uiImage: image)
             .resizable()
             .scaledToFill()
             .frame(width: 250, height: 250)

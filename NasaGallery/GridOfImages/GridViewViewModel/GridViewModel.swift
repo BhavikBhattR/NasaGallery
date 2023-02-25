@@ -14,6 +14,7 @@ class GridViewModel: ObservableObject{
     
     let dataService: DataServiceProtocol
     @Published var nasaImages: [NasaImage] = []
+    @Published var isErrorDownloadingImage: Bool = false
     var anyCancellables = Set<AnyCancellable>()
 
     
@@ -25,9 +26,10 @@ class GridViewModel: ObservableObject{
     func downloadNasaImages() {
         self.dataService.downloadData()
             .receive(on: DispatchQueue.main)
-            .sink {completion in
+            .sink {[weak self] completion in
                 switch completion{
                 case .failure(let error):
+                    self?.isErrorDownloadingImage = true
                      print("\(error)")
                 case .finished:
                     print("returned data successfully")

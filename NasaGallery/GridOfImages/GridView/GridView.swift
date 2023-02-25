@@ -16,45 +16,71 @@ struct GridView: View {
     ]
     @StateObject var vm: GridViewModel
     var body: some View {
-            NavigationStack{
-                ZStack{
-                    Color.colorTheme.backgroundColorHome.edgesIgnoringSafeArea(.bottom)
-                ScrollView{
-                    LazyVGrid(columns: columns){
-                        ForEach(0..<vm.nasaImages.count, id: \.self) { index in
-                            NavigationLink{
-                                DetailView(nasaImages: vm.nasaImages, selectedImageIndex: index)
-                            } label: {
-                                ZStack{
-                                    Rectangle()
-                                        .fill(Colors.returnedColor(index: index))
+        NavigationStack{
+            ZStack{
+                LinearGradient(colors: [.blue, .yellow, .white], startPoint: .topLeading, endPoint: .bottomTrailing)
+                    .ignoresSafeArea()
+                // Color.colorTheme.backgroundColorHome.edgesIgnoringSafeArea(.bottom)
+                VStack{
+                    Text("✨ Nasa Gallery ✨")
+                        .font(.headline)
+                        .foregroundColor(.black.opacity(0.7))
+                    if !vm.nasaImages.isEmpty{
+                    ScrollView{
+                        LazyVGrid(columns: columns){
+                            ForEach(0..<vm.nasaImages.count, id: \.self) { index in
+                                NavigationLink{
+                                    DetailView(nasaImages: vm.nasaImages, selectedImageIndex: index)
+                                } label: {
+                                    ZStack{
+                                        Rectangle()
+                                            .fill(Colors.returnedColor(index: index))
+                                            .cornerRadius(10)
+                                        
+                                        VStack{
+                                            GeometryReader{ geo in
+                                                
+                                                if let image = SDImageCache.shared.imageFromCache(forKey: vm.nasaImages[index].url){
+                                                    Image(uiImage: image)
+                                                        .resizable()
+                                                        .scaledToFill()
+                                                }else{
+                                                    WebImage(url: URL(string: vm.nasaImages[index].url))
+                                                        .resizable()
+                                                        .scaledToFill()
+                                                }
+                                            }.clipped()
+                                                .aspectRatio(1, contentMode: .fit)
+                                        }
                                         .cornerRadius(10)
-                                    
-                                    VStack{
-                                        GeometryReader{ geo in
-                                            WebImage(url: URL(string: vm.nasaImages[index].url))
-                                                .resizable()
-                                                .scaledToFill()
-                                        }.clipped()
-                                            .aspectRatio(1, contentMode: .fit)
+                                        .overlay(
+                                            RoundedRectangle(cornerRadius: 10)
+                                                .stroke(Color.white)
+                                        )
                                     }
-                                    .cornerRadius(10)
-                                    .overlay(
-                                        RoundedRectangle(cornerRadius: 10)
-                                            .stroke(Color.colorTheme.borderColor)
-                                    )
+                                    
                                 }
-                                
                             }
                         }
+                        .padding(.horizontal, 10)
+                        .padding([.bottom, .top])
                     }
-                    .padding(.horizontal, 10)
-                    .padding([.bottom, .top])
-                }
+                    }else{
+                        if vm.isErrorDownloadingImage{
+                            Spacer()
+                            Text("OOps ! It looks like there is a problem loading images, please try after some time")
+                                .multilineTextAlignment(.center)
+                                .font(.subheadline)
+                                .fontWeight(.semibold)
+                                .foregroundColor(.white)
+                            Spacer()
+                        }else{
+                            Spacer()
+                        }
+                    }
             }
-                .navigationTitle("Nasa Gallery")
-                .navigationBarTitleDisplayMode(.inline)
             }
+         }
         .task {
             vm.downloadNasaImages()
         }

@@ -117,4 +117,14 @@ final class GridViewModel_tests: XCTestCase {
             XCTAssertEqual(vm.anyCancellables.count, 1)
         }
     }
+    
+    func test_gridViewModel_isErrorDownloadingImage_mustBeFalseWhenViewModelIsInitialised(){
+        if let correctURL = correctURL{
+            //Given
+            //When
+            let vm = GridViewModel(dataService: ProductionDataService(url: correctURL))
+            //Then
+            XCTAssertFalse(vm.isErrorDownloadingImage)
+        }
+    }
 }
