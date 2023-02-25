@@ -21,6 +21,6 @@ NasaGallery is the gallery of certain nasa images, User can tap on the image and
 
 ###### Colorful placeholder boxes when images are getting downloaded
 
-![Simulator Screen Shot - iPhone 14 - 2023-02-25 at 18 13 20](https://user-images.githubusercontent.com/68719677/221357461-f6368da9-42bb-4cf7-8803-22691bd29ea0.png)
+![Simulator Screen Shot - iPhone 14 - 2023-02-25 at 18 13 20](https://user-images.githubusercontent.com/68719677/221357461-f6368da9-42bb-4cf7-8803-22691bd29ea0.png){:height="100px" width="100px"}
 
  
