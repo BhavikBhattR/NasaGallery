@@ -23,19 +23,24 @@ NasaGallery is the gallery of certain nasa images, User can tap on the image and
 
 ###### Ignore the quality of GIF, it has been reduced to upload here. As we can not upload file of more than 10 MB
 
-###### Colorful placeholder boxes in Grid when images are getting downloaded
+###### ** - Colorful placeholder boxes in Grid when images are getting downloaded **
 
 ![Simulator Screen Shot - iPhone 14 - 2023-02-25 at 18 13 20](https://user-images.githubusercontent.com/68719677/221357461-f6368da9-42bb-4cf7-8803-22691bd29ea0.png)
 
-###### Grid View after images gets downloaded
+###### ** - Grid View after images gets downloaded ** 
 
 ![Simulator Screen Shot - iPhone 14 - 2023-02-25 at 18 19 24](https://user-images.githubusercontent.com/68719677/221357716-4418eb64-d373-4098-a044-2f231d0c7c9c.png)
 
-###### Detail View
+###### ** - Detail View **
 
 ![DetailView](https://user-images.githubusercontent.com/68719677/221359655-fa237671-62a9-4705-a3bf-6037ed709b9c.gif)
 
 
-###### Swipinf feature to see previous or next image
+###### ** - Swiping feature to see previous or next image **
  
 ![SwipingToPreviousAndNext](https://user-images.githubusercontent.com/68719677/221360179-4bb56765-758a-4f88-b3da-2afdf70281a9.gif)
+
+###### ** - Error message When there is a problem getting images downloaded **
+
+![Uploading Simulator Screen Shot - iPhone 14 - 2023-02-25 at 22.08.32.png…]()
+
