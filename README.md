@@ -5,19 +5,19 @@ NasaGallery is the gallery of certain nasa images, User can tap on the image and
 
 ## File Structure and Details of what each Folder contains
 
-Grouping and MVMM - To create this project, groups are created. each group containing view has its own seperate files for View Model and View. Except that struct Model (NasaImage) is created to convert the json data in that format using JsonDecoder
-NetworkManager Folder - It contains seperate DataService (named ProductionDataService) class, which is responsible to get the data from internet. Class does conform to DataServiceProtocol which contains 2 methods, one for  handling the response and another for returning a publisher<[ImageModel].self, Error>. This is a good practice as sometimes we might want to use dummy service for testing purposes we can make another service conform to that protocol and we can use that practice by avoiding the operation on production resources.
-GridView Folder - It contains 2 files GridView (View) and GridViewModel (ViewModel of GridView). GridView is responsible to display the grid of the images received from the internet. By clicking on one of the image, user navigates to the detail view for that image.
-DetailViewModule - It contains 2 files DetailView (View) and DetailViewModel (ViewModel). Detail view contains the detail of the image, which was clicked from the grid before the appearance of DetailView. Detail view contains the meta data for the image. User can also swipe to the previous or next image's Detail View
-Utility Folder - It is created to work with array of colors. When the grid appears, if images are not downloaded yet, then different colors from this array are used to have placeholder boxes of different colors.
+1. Grouping and MVMM - To create this project, groups are created. each group containing view has its own seperate files for View Model and View. Except that struct Model (NasaImage) is created to convert the json data in that format using JsonDecoder.
+2. NetworkManager Folder - It contains seperate DataService (named ProductionDataService) class, which is responsible to get the data from internet. Class does conform to DataServiceProtocol which contains 2 methods, one for  handling the response and another for returning a publisher<[ImageModel].self, Error>. This is a good practice as sometimes we might want to use dummy service for testing purposes we can make another service conform to that protocol and we can use that practice by avoiding the operation on production resources.
+3. GridView Folder - It contains 2 files GridView (View) and GridViewModel (ViewModel of GridView). GridView is responsible to display the grid of the images received from the internet. By clicking on one of the image, user navigates to the detail view for that image.
+4. DetailViewModule - It contains 2 files DetailView (View) and DetailViewModel (ViewModel). Detail view contains the detail of the image, which was clicked from the grid before the appearance of DetailView. Detail view contains the meta data for the image. User can also swipe to the previous or next image's Detail View.
+5. Utility Folder - It is created to work with array of colors. When the grid appears, if images are not downloaded yet, then different colors from this array are used to have placeholder boxes of different colors.
 
 
 ## Unit Tests
 
-- This is a simple project of containing 2 screens only. Prime focus while writing unit tests was on getting the data correctly from the internet, decoding it correctly (Decoding of the data is getting us the [NasaImage] format or not) and diaplaying in an asked manner (for ex. Latest image first). 
-- GridViewModel and DataService contained the main business logic for the application. To test if both the files are working as expected different files of unit tests is created for both.
-- Tests get failed with proper message so that developer can understand what really example. For that when something gets wrong custom errors are thrown while developing the code. Ex. Decoding the data with wrong decoder, Status code of response was not in 200-300 range, Returned data is nil or returned response was not HTTPURL all contains the explicit errors. 
-- It was desired that latest images must be first, so unit test is written for that too. 
+1. This is a simple project of containing 2 screens only. Prime focus while writing unit tests was on getting the data correctly from the internet, decoding it correctly (Decoding of the data is getting us the [NasaImage] format or not) and diaplaying in an asked manner (for ex. Latest image first). 
+2. GridViewModel and DataService contained the main business logic for the application. To test if both the files are working as expected different files of unit tests is created for both.
+3. Tests get failed with proper message so that developer can understand what really example. For that when something gets wrong custom errors are thrown while developing the code. Ex. Decoding the data with wrong decoder, Status code of response was not in 200-300 range, Returned data is nil or returned response was not HTTPURL all contains the explicit errors. 
+4. It was desired that latest images must be first, so unit test is written for that too. 
 
 ## UI of the project 
 
