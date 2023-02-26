@@ -42,5 +42,5 @@ NasaGallery is the gallery of certain nasa images, User can tap on the image and
 
 ###### ** - Error message When there is a problem getting images downloaded **
 
-![Uploading Simulator Screen Shot - iPhone 14 - 2023-02-25 at 22.08.32.png…]()
+![Simulator Screen Shot - iPhone 14 - 2023-02-25 at 22 08 32](https://user-images.githubusercontent.com/68719677/221401015-74404e61-3b8d-4dc0-aa8d-26117bfe022a.png)
 
