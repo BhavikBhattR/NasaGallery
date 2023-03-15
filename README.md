@@ -25,11 +25,11 @@ NasaGallery is the gallery of certain nasa images, User can tap on the image and
 
 **- Colorful placeholder boxes in Grid when images are getting downloaded**
 
-![Simulator Screen Shot - iPhone 14 - 2023-02-25 at 18 13 20](https://user-images.githubusercontent.com/68719677/221357461-f6368da9-42bb-4cf7-8803-22691bd29ea0.png)
+![Simulator Screen Shot - iPhone 14 - 2023-02-25 at 18 13 20](https://user-images.githubusercontent.com/68719677/225348186-97ef9f66-18b2-4ff5-ab63-e4e13a34b0ac.png)
 
 **- Grid View after images gets downloaded** 
 
-![Simulator Screen Shot - iPhone 14 - 2023-02-25 at 18 19 24](https://user-images.githubusercontent.com/68719677/221357716-4418eb64-d373-4098-a044-2f231d0c7c9c.png)
+![Simulator Screen Shot - iPhone 14 - 2023-02-25 at 17 02 47](https://user-images.githubusercontent.com/68719677/225348387-21c6107b-bcdb-4f1d-b153-b16b3de8ae42.png)
 
 **- Detail View**
 
@@ -42,5 +42,5 @@ NasaGallery is the gallery of certain nasa images, User can tap on the image and
 
 **- Error message When there is a problem getting images downloaded**
 
-![Simulator Screen Shot - iPhone 14 - 2023-02-25 at 22 08 32](https://user-images.githubusercontent.com/68719677/221401015-74404e61-3b8d-4dc0-aa8d-26117bfe022a.png)
+![Simulator Screen Shot - iPhone 14 - 2023-02-25 at 22 08 32](https://user-images.githubusercontent.com/68719677/225348515-1f4dd307-4f06-4876-8480-e1481468095d.png)
 
