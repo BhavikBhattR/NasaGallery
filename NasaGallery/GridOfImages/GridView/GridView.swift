@@ -15,6 +15,11 @@ struct GridView: View {
         GridItem(.adaptive(minimum: 150))
     ]
     @StateObject var vm: GridViewModel
+    
+    init(dataService: DataServiceProtocol){
+        _vm = StateObject(wrappedValue: GridViewModel(dataService: dataService))
+    }
+    
     var body: some View {
         NavigationStack{
             ZStack{
@@ -90,6 +95,7 @@ struct GridView: View {
 
 struct GridView_Previews: PreviewProvider {
     static var previews: some View {
-        GridView(vm: GridViewModel(dataService: ProductionDataService(url: URL(string: "https://raw.githubusercontent.com/obvious/take-home-exercise-data/trunk/nasa-pictures.json")!)))
+//        GridView(vm: GridViewModel(dataService: ProductionDataService(url: URL(string: "https://raw.githubusercontent.com/obvious/take-home-exercise-data/trunk/nasa-pictures.json")!)))
+        GridView(dataService: ProductionDataService(url: URL(string: "https://raw.githubusercontent.com/obvious/take-home-exercise-data/trunk/nasa-pictures.json")!))
     }
 }

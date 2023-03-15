@@ -24,7 +24,7 @@ struct NasaGalleryApp: App {
         WindowGroup {
             if let url = url{
                 // you can pass the different service to your sandbox environment if you wamt
-                GridView(vm: GridViewModel(dataService: ProductionDataService(url: url)))
+                GridView(dataService: ProductionDataService(url: url))
             }
         }
     }
