@@ -33,12 +33,12 @@ NasaGallery is the gallery of certain nasa images, User can tap on the image and
 
 **- Detail View**
 
-![DetailView](https://user-images.githubusercontent.com/68719677/221359655-fa237671-62a9-4705-a3bf-6037ed709b9c.gif)
+![detailLatest](https://user-images.githubusercontent.com/68719677/225347010-9b37619f-d62c-4d1c-9d95-c15088ea2b47.gif)
 
 
 **- Swiping feature to see previous or next image**
  
-![SwipingToPreviousAndNext](https://user-images.githubusercontent.com/68719677/221360179-4bb56765-758a-4f88-b3da-2afdf70281a9.gif)
+![swipeLatest](https://user-images.githubusercontent.com/68719677/225347749-bd6527f5-5282-4071-84f4-6b72f12eacde.gif)
 
 **- Error message When there is a problem getting images downloaded**
 
