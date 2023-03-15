@@ -97,11 +97,11 @@ extension DetailView{
     private func downloadedImageOf(nasaImage: NasaImage) -> some View{
             return WebImage(url: URL(string: nasaImage.url))
                 .resizable()
-                .scaledToFill()
-                .frame(width: 250, height: 250)
-                .clipped()
-                .aspectRatio(1, contentMode: .fit)
                 .border(.black)
+                .scaledToFit()
+                .frame(width: 350, height: 250)
+//                .clipped()
+//                .aspectRatio(1, contentMode: .fit)
                 .shadow(radius: 2)
                 .cornerRadius(10)
     }
@@ -109,11 +109,11 @@ extension DetailView{
     private func cachedImageOf(image: UIImage) -> some View{
         return Image(uiImage: image)
             .resizable()
-            .scaledToFill()
-            .frame(width: 250, height: 250)
-            .clipped()
-            .aspectRatio(1, contentMode: .fit)
             .border(.black)
+            .scaledToFit()
+            .frame(width: 350, height: 250)
+//            .clipped()
+//            .aspectRatio(1, contentMode: .fit)
             .shadow(radius: 2)
             .cornerRadius(10)
     }
